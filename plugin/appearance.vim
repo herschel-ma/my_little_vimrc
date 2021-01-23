@@ -2,12 +2,12 @@
 " appearance
 "------------
 set termguicolors
-colorscheme monokai 
+colorscheme monokai
 set background=dark
 set t_Co=256
 set nu
 set relativenumber
-set showmode
+set noshowmode
 set showcmd
 set nolist " 末尾不显示制表符
 set wrap
@@ -16,3 +16,10 @@ set ruler
 set cursorline
 syntax on
 syntax enable
+"-----------
+" 透明度
+"-----------
+if executable("vimtweak.dll")
+autocmd guienter * call libcallnr("vimtweak","SetAlpha",200)
+endif
+highlight EndOfBuffer ctermfg=bg
